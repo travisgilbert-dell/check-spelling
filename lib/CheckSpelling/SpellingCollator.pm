@@ -381,7 +381,7 @@ sub main {
                 my $pattern = (split /\n/,$candidates[$i])[-1];
                 my $position = $lines[$i];
                 $position =~ s/:(\d+)$/ ... $1/;
-                push @delayed_warnings, "$file:$position, Notice - `Line` matches candidate pattern `$pattern` (candidate-pattern) limit: `$candidate_example_limit`\n";
+                push @delayed_warnings, "$file:$position, Notice - `Line` matches candidate pattern `$pattern` (candidate-pattern) found/limit:$candidate_file_counts[$i]/$candidate_example_limit\n";
               }
             }
           }
