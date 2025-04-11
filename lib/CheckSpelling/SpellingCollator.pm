@@ -370,6 +370,7 @@ sub main {
       $unique=get_field($stats, 'unique');
       my @candidate_list;
       if (@candidate_totals) {
+        push @delayed_warnings, "stats=$stats";
         @candidate_list=get_array($stats, 'candidates');
         my @lines=get_array($stats, 'candidate_lines');
         if (@candidate_list) {
