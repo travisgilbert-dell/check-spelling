@@ -378,7 +378,7 @@ sub main {
 	    push @delayed_warnings, "candidate_list[$i]=$hits ";
             if ($hits) {
               $candidate_totals[$i] += $hits;
-              if ($candidate_file_counts[$i]++ < $candidate_example_limit) {
+              while ($candidate_file_counts[$i]++ < $candidate_example_limit) {
                 my $pattern = (split /\n/,$candidates[$i])[-1];
                 my $position = $lines[$i];
                 $position =~ s/:(\d+)$/ ... $1/;
