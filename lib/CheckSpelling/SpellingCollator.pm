@@ -375,15 +375,16 @@ sub main {
         if (@candidate_list) {
           for (my $i=0; $i < scalar @candidate_list; $i++) {
             my $hits = $candidate_list[$i];
-            if ($hits) {
+            while ($hits > 0) {
 	      push @delayed_warnings, "candidate_list[$i]=$hits ";
               $candidate_totals[$i] += $hits;
-              while ($candidate_file_counts[$i]++ < $candidate_example_limit) {
+              if ($candidate_file_counts[$i]++ < $candidate_example_limit) {
                 my $pattern = (split /\n/,$candidates[$i])[-1];
                 my $position = $lines[$i];
                 $position =~ s/:(\d+)$/ ... $1/;
                 push @delayed_warnings, "$file:$position, Notice - `Line` matches candidate pattern `$pattern` (candidate-pattern) found/limit:$candidate_file_counts[$i]/$candidate_example_limit\n";
               }
+	      $hits = $hits - 1;
             }
           }
         }
