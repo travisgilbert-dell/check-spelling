@@ -375,7 +375,7 @@ sub main {
         if (@candidate_list) {
           for (my $i=0; $i < scalar @candidate_list; $i++) {
             my $hits = $candidate_list[$i];
-	    push @delayed_warnings, "candidate_list[$i]=$candidate_list[$i]";
+	    push @delayed_warnings, "candidate_list[$i]=$candidate_list[$i] ";
             if ($hits) {
               $candidate_totals[$i] += $hits;
               if ($candidate_file_counts[$i]++ < $candidate_example_limit) {
