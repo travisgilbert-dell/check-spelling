@@ -375,8 +375,8 @@ sub main {
         if (@candidate_list) {
           for (my $i=0; $i < scalar @candidate_list; $i++) {
             my $hits = $candidate_list[$i];
-	    push @delayed_warnings, "candidate_list[$i]=$hits ";
             if ($hits) {
+	      push @delayed_warnings, "candidate_list[$i]=$hits ";
               $candidate_totals[$i] += $hits;
               while ($candidate_file_counts[$i]++ < $candidate_example_limit) {
                 my $pattern = (split /\n/,$candidates[$i])[-1];
